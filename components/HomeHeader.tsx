@@ -1,16 +1,22 @@
+import Link from "next/link";
 import { IconBell, IconHome, IconTicket } from "./icons";
 
-export function HomeHeader() {
+type HomeHeaderProps = {
+  searchValue: string;
+  onSearchChange: (value: string) => void;
+};
+
+export function HomeHeader({ searchValue, onSearchChange }: HomeHeaderProps) {
   return (
     <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-[1440px] items-center gap-3 px-4 py-4 lg:px-8">
-        <button className="flex min-w-32 items-center gap-2 text-[#FD6565]" aria-label="Go to homepage">
+        <Link href="/" className="flex min-w-32 items-center gap-2 text-[#FD6565]" aria-label="Go to homepage">
           <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current" aria-hidden="true">
             <path d="M12 1.5a5.4 5.4 0 00-5.4 5.4c0 2.8 1.9 4.7 3.7 6.5l1.7 1.6 1.7-1.6c1.8-1.8 3.7-3.7 3.7-6.5A5.4 5.4 0 0012 1.5z" />
             <path d="M4 13.8a8 8 0 0116 0c0 4.1-3.6 6.7-8 8.7-4.4-2-8-4.6-8-8.7z" opacity=".65" />
           </svg>
           <span className="text-xl font-bold tracking-tight">airbnb</span>
-        </button>
+        </Link>
 
         <div className="hidden flex-1 items-center justify-center gap-5 text-sm font-medium xl:flex">
           <button className="flex items-center gap-2 rounded-full px-3 py-2 hover:bg-zinc-100">
@@ -45,10 +51,16 @@ export function HomeHeader() {
 
       <div className="mx-auto w-full max-w-[1440px] px-4 pb-4 lg:px-8">
         <div className="mx-auto flex max-w-3xl items-center rounded-full border border-zinc-200 bg-white shadow-md shadow-zinc-300/40">
-          <button className="flex-1 rounded-l-full px-5 py-3 text-left hover:bg-zinc-100">
+          <div className="flex-1 rounded-l-full px-5 py-3">
             <p className="text-xs font-semibold">Where</p>
-            <p className="text-sm text-zinc-500">Search destinations</p>
-          </button>
+            <input
+              value={searchValue}
+              onChange={(event) => onSearchChange(event.target.value)}
+              className="w-full bg-transparent text-sm text-zinc-700 placeholder:text-zinc-500 focus:outline-none"
+              placeholder="Search destinations"
+              aria-label="Search destinations"
+            />
+          </div>
           <button className="hidden flex-1 px-5 py-3 text-left md:block hover:bg-zinc-100">
             <p className="text-xs font-semibold">When</p>
             <p className="text-sm text-zinc-500">Add dates</p>
