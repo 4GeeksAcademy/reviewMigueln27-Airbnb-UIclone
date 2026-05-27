@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HomeHeader } from "../../../components/HomeHeader";
@@ -219,6 +220,17 @@ export default function RoomPage() {
       <HomeHeader searchValue={searchValue} onSearchChange={setSearchValue} />
 
       <main className="mx-auto w-full max-w-[1120px] space-y-8 bg-white px-4 pb-14 pt-7 sm:px-6">
+        <Link
+          href="/catalog"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-zinc-900"
+          aria-label="Back to catalog"
+        >
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 6l-6 6 6 6" />
+          </svg>
+          Back
+        </Link>
+
         <RoomHeaderInfo room={room} />
 
         <RoomPhotoGallery
