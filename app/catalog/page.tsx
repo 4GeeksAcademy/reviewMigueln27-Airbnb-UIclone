@@ -1,8 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { CatalogListingsGrid } from "../../components/CatalogListingsGrid";
+import { CatalogMapPlaceholder } from "../../components/CatalogMapPlaceholder";
+import { CatalogResultsToolbar } from "../../components/CatalogResultsToolbar";
 import { HomeHeader } from "../../components/HomeHeader";
-import { ListingCard, type Listing } from "../../components/ListingCard";
+import { ListingsMessage } from "../../components/ListingsMessage";
+import { type Listing } from "../../components/ListingCard";
 import { SiteFooter } from "../../components/SiteFooter";
 import { SupportLinksSection } from "../../components/SupportLinksSection";
 
@@ -149,42 +153,20 @@ export default function CatalogPage() {
       <main className="mx-auto w-full max-w-[1440px] bg-white px-4 py-6 lg:px-8">
         <div className="grid gap-8 xl:grid-cols-[minmax(0,2fr)_minmax(340px,1fr)]">
           <section>
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-4">
-              <p className="text-lg font-semibold tracking-tight">{visibleListings.length.toLocaleString()} homes found</p>
-              <div className="flex items-center gap-2">
-                <label htmlFor="catalog-sort" className="text-sm font-medium text-zinc-600">
-                  Sort by price
-                </label>
-                <select
-                  id="catalog-sort"
-                  value={sortOrder}
-                  onChange={(event) => setSortOrder(event.target.value as SortOrder)}
-                  className="rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 focus:border-zinc-500 focus:outline-none"
-                >
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
-                </select>
-              </div>
-            </div>
+            <CatalogResultsToolbar
+              resultCount={visibleListings.length}
+              sortOrder={sortOrder}
+              onChangeSortOrder={setSortOrder}
+            />
 
-              {visibleListings.length > 0 ? (
-                <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
-                  {visibleListings.map((listing) => (
-                    <ListingCard key={listing.id} listing={listing} largeImage />
-                  ))}
-                </div>
-              ) : (
-                <section className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-12 text-center text-sm font-medium text-zinc-500">
-                  No listings match your search.
-                </section>
-              )}
+            {visibleListings.length > 0 ? (
+              <CatalogListingsGrid listings={visibleListings} />
+            ) : (
+              <ListingsMessage message="No listings match your search." />
+            )}
           </section>
 
-          <aside className="hidden xl:block">
-            <div className="sticky top-28 flex min-h-[560px] items-center justify-center rounded-3xl border border-dashed border-zinc-300 bg-zinc-50 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-400">
-              Map goes here
-            </div>
-          </aside>
+          <CatalogMapPlaceholder />
         </div>
 
         <div className="mt-10">

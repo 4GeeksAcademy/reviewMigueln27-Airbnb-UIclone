@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { HomeHeader } from "../components/HomeHeader";
+import { HomeCategoryFilter } from "../components/HomeCategoryFilter";
 import { InspirationTabs } from "../components/InspirationTabs";
+import { ListingsMessage } from "../components/ListingsMessage";
 import { ListingSection } from "../components/ListingSection";
 import { SiteFooter } from "../components/SiteFooter";
 import { SupportLinksSection } from "../components/SupportLinksSection";
@@ -202,39 +204,18 @@ export default function HomePage() {
       <HomeHeader searchValue={searchValue} onSearchChange={handleSearchChange} />
 
       <main className="mx-auto w-full max-w-[1440px] space-y-10 bg-white px-4 py-8 lg:px-8">
-        <section className="space-y-3">
-          <p className="text-sm font-semibold text-zinc-600">Filter by category</p>
-          <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {categories.map((category) => {
-              const isActive = category === activeCategory;
-
-              return (
-                <button
-                  key={category}
-                  onClick={() => handleCategoryChange(category)}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition ${
-                    isActive
-                      ? "border-zinc-900 bg-zinc-900 text-white"
-                      : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-900"
-                  }`}
-                >
-                  {category}
-                </button>
-              );
-            })}
-          </div>
-        </section>
+        <HomeCategoryFilter
+          categories={categories}
+          activeCategory={activeCategory}
+          onSelectCategory={handleCategoryChange}
+        />
 
         {isLoading ? (
-          <section className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-12 text-center text-sm font-medium text-zinc-500">
-            Loading listings...
-          </section>
+          <ListingsMessage message="Loading listings..." />
         ) : visibleSections.length > 0 ? (
           visibleSections.map((section) => <ListingSection key={section.title} title={section.title} listings={section.listings} />)
         ) : (
-          <section className="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-12 text-center text-sm font-medium text-zinc-500">
-            No listings match your search and category filters.
-          </section>
+          <ListingsMessage message="No listings match your search and category filters." />
         )}
 
         <InspirationTabs activeTab={activeTab} tabs={tabs} tabContent={tabContent} onChangeTab={setActiveTab} />
