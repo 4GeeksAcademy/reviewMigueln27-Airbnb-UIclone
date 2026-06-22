@@ -159,7 +159,7 @@ function getRoomById(id: string): RoomData {
   return buildFallbackRoom(id);
 }
 
-export default function RoomPage() {
+const RoomPage = () => {
   const params = useParams<{ id: string }>();
   const id = params?.id ?? "";
 
@@ -259,4 +259,6 @@ export default function RoomPage() {
       </main>
     </div>
   );
-}
+};
+
+export default RoomPage;

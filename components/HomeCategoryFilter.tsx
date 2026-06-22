@@ -4,7 +4,7 @@ type HomeCategoryFilterProps = {
   onSelectCategory: (category: string) => void;
 };
 
-export function HomeCategoryFilter({ categories, activeCategory, onSelectCategory }: HomeCategoryFilterProps) {
+export const HomeCategoryFilter = ({ categories, activeCategory, onSelectCategory }: HomeCategoryFilterProps) => {
   return (
     <section className="space-y-3">
       <p className="text-sm font-semibold text-zinc-600">Filter by category</p>
@@ -29,4 +29,4 @@ export function HomeCategoryFilter({ categories, activeCategory, onSelectCategor
       </div>
     </section>
   );
-}
+};

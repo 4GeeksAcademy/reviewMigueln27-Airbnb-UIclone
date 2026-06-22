@@ -8,7 +8,7 @@ type RoomPhotoGalleryProps = {
   onSelectPhoto: (index: number) => void;
 };
 
-export function RoomPhotoGallery({ room, photoIndex, onPreviousPhoto, onNextPhoto, onSelectPhoto }: RoomPhotoGalleryProps) {
+export const RoomPhotoGallery = ({ room, photoIndex, onPreviousPhoto, onNextPhoto, onSelectPhoto }: RoomPhotoGalleryProps) => {
   const sidePhotos = room.photos.filter((_, index) => index !== photoIndex).slice(0, 4);
 
   return (
@@ -59,4 +59,4 @@ export function RoomPhotoGallery({ room, photoIndex, onPreviousPhoto, onNextPhot
       </div>
     </section>
   );
-}
+};

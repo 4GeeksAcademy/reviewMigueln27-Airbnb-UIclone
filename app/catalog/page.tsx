@@ -120,7 +120,7 @@ function toPriceValue(priceLabel: string) {
   return Number.isNaN(numericPrice) ? 0 : numericPrice;
 }
 
-export default function CatalogPage() {
+const CatalogPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
 
@@ -177,4 +177,6 @@ export default function CatalogPage() {
       <SiteFooter />
     </div>
   );
-}
+};
+
+export default CatalogPage;

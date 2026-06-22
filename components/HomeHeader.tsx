@@ -6,7 +6,7 @@ type HomeHeaderProps = {
   onSearchChange: (value: string) => void;
 };
 
-export function HomeHeader({ searchValue, onSearchChange }: HomeHeaderProps) {
+export const HomeHeader = ({ searchValue, onSearchChange }: HomeHeaderProps) => {
   return (
     <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-[1440px] items-center gap-3 px-4 py-4 lg:px-8">
@@ -79,4 +79,4 @@ export function HomeHeader({ searchValue, onSearchChange }: HomeHeaderProps) {
       </div>
     </header>
   );
-}
+};

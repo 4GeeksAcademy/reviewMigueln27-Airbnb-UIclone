@@ -16,20 +16,13 @@ type ListingCardProps = {
 	largeImage?: boolean;
 };
 
-export function ListingCard({ listing, largeImage = false }: ListingCardProps) {
+export const ListingCard = ({ listing, largeImage = false }: ListingCardProps) => {
 	return (
 		<article className={largeImage ? "w-full max-w-[420px] space-y-3" : "w-[185px] shrink-0 space-y-2"}>
 			<Link href={`/rooms/${listing.id}`} className="group block">
-				<div
-					className={largeImage ? "relative h-[260px] overflow-hidden rounded-3xl" : "relative h-44 overflow-hidden rounded-2xl"}
-					style={{
-						backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08)), url(${listing.imageUrl})`,
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-					}}
-					role="img"
-					aria-label={listing.title}
-				>
+				<div className={largeImage ? "relative h-[260px] overflow-hidden rounded-3xl" : "relative h-44 overflow-hidden rounded-2xl"}>
+					<img src={listing.imageUrl} alt={listing.title} className="h-full w-full object-cover" />
+					<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-black/10 to-transparent" />
 					{listing.tag ? (
 						<span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-zinc-700">
 							{listing.tag}
@@ -57,4 +50,4 @@ export function ListingCard({ listing, largeImage = false }: ListingCardProps) {
 			</Link>
 		</article>
 	);
-}
+};

@@ -167,7 +167,7 @@ function filterSections(sourceSections: HomeListingSection[], typedValue: string
     .filter((section) => section.listings.length > 0);
 }
 
-export default function HomePage() {
+const HomePage = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [searchValue, setSearchValue] = useState("");
   const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -226,4 +226,6 @@ export default function HomePage() {
       <SiteFooter />
     </div>
   );
-}
+};
+
+export default HomePage;

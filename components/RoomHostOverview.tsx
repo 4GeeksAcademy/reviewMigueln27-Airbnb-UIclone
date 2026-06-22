@@ -4,7 +4,7 @@ type RoomHostOverviewProps = {
   room: RoomData;
 };
 
-export function RoomHostOverview({ room }: RoomHostOverviewProps) {
+export const RoomHostOverview = ({ room }: RoomHostOverviewProps) => {
   return (
     <article className="flex items-center justify-between border-b border-zinc-200 pb-6">
       <div>
@@ -19,4 +19,4 @@ export function RoomHostOverview({ room }: RoomHostOverviewProps) {
       </div>
     </article>
   );
-}
+};
