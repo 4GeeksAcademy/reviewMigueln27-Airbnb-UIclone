@@ -4,7 +4,7 @@ type RoomHeaderInfoProps = {
   room: RoomData;
 };
 
-export const RoomHeaderInfo = ({ room }: RoomHeaderInfoProps) => {
+export function RoomHeaderInfo({ room }: RoomHeaderInfoProps) {
   return (
     <section className="space-y-3">
       <h1 className="text-[28px] font-semibold leading-tight tracking-tight">{room.title}</h1>
@@ -17,4 +17,4 @@ export const RoomHeaderInfo = ({ room }: RoomHeaderInfoProps) => {
       </div>
     </section>
   );
-};
+}

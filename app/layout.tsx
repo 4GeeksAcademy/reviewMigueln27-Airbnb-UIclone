@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description: "Airbnb-inspired homepage clone built with Next.js and Tailwind CSS",
 };
 
-const RootLayout = ({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) => {
+}>) {
   return (
     <html
       lang="en"
@@ -30,6 +30,4 @@ const RootLayout = ({
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
-};
-
-export default RootLayout;
+}

@@ -1,4 +1,4 @@
-export const SiteFooter = () => {
+export function SiteFooter() {
   return (
     <footer className="border-t border-zinc-200 bg-[#f2f2f2]">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-4 py-5 text-sm text-zinc-600 md:flex-row md:items-center md:justify-between lg:px-8">
@@ -31,4 +31,4 @@ export const SiteFooter = () => {
       </div>
     </footer>
   );
-};
+}

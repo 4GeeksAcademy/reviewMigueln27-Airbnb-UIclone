@@ -2,7 +2,7 @@ type RoomLoadingStateProps = {
   listingId: string;
 };
 
-export const RoomLoadingState = ({ listingId }: RoomLoadingStateProps) => {
+export function RoomLoadingState({ listingId }: RoomLoadingStateProps) {
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-6xl items-center justify-center px-6 py-12">
       <section className="w-full max-w-xl rounded-3xl border border-zinc-200 bg-white p-8 text-center shadow-sm">
@@ -12,4 +12,4 @@ export const RoomLoadingState = ({ listingId }: RoomLoadingStateProps) => {
       </section>
     </main>
   );
-};
+}

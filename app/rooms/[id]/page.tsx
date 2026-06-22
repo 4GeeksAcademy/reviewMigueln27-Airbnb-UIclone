@@ -13,15 +13,6 @@ import { RoomNavigationLinks } from "../../../components/RoomNavigationLinks";
 import { RoomPhotoGallery } from "../../../components/RoomPhotoGallery";
 import type { Amenity, RoomData } from "../../../types/room";
 
-const roomPhotos = [
-  "/room-real-1.jpg",
-  "/room-real-2.jpg",
-  "/room-real-3.jpg",
-  "/room-real-4.jpg",
-  "/room-real-5.jpg",
-  "/room-real-6.jpg",
-];
-
 const amenities: Amenity[] = [
   {
     id: "kitchen",
@@ -103,7 +94,13 @@ const roomSeedData: Record<string, Omit<RoomData, "id" | "amenities">> = {
     hostName: "Serrento",
     yearsHosting: 5,
     nightlyPrice: 326,
-    photos: [roomPhotos[0], roomPhotos[1], roomPhotos[2], roomPhotos[0], roomPhotos[1]],
+    photos: [
+      "https://picsum.photos/seed/room-c1-main/1200/800",
+      "https://picsum.photos/seed/room-c1-a/1200/800",
+      "https://picsum.photos/seed/room-c1-b/1200/800",
+      "https://picsum.photos/seed/room-c1-c/1200/800",
+      "https://picsum.photos/seed/room-c1-d/1200/800",
+    ],
   },
   "c-2": {
     title: "Townhouse with game room and splash area",
@@ -114,7 +111,13 @@ const roomSeedData: Record<string, Omit<RoomData, "id" | "amenities">> = {
     hostName: "Rennata",
     yearsHosting: 9,
     nightlyPrice: 256,
-    photos: [roomPhotos[1], roomPhotos[2], roomPhotos[0], roomPhotos[1], roomPhotos[2]],
+    photos: [
+      "https://picsum.photos/seed/room-c2-main/1200/800",
+      "https://picsum.photos/seed/room-c2-a/1200/800",
+      "https://picsum.photos/seed/room-c2-b/1200/800",
+      "https://picsum.photos/seed/room-c2-c/1200/800",
+      "https://picsum.photos/seed/room-c2-d/1200/800",
+    ],
   },
 };
 
@@ -132,11 +135,11 @@ function buildFallbackRoom(id: string): RoomData {
     yearsHosting: 4 + (numeric % 8),
     nightlyPrice: 180 + numeric * 6,
     photos: [
-      roomPhotos[numeric % roomPhotos.length],
-      roomPhotos[(numeric + 1) % roomPhotos.length],
-      roomPhotos[(numeric + 2) % roomPhotos.length],
-      roomPhotos[numeric % roomPhotos.length],
-      roomPhotos[(numeric + 1) % roomPhotos.length],
+      `https://picsum.photos/seed/room-${id}-main/1200/800`,
+      `https://picsum.photos/seed/room-${id}-a/1200/800`,
+      `https://picsum.photos/seed/room-${id}-b/1200/800`,
+      `https://picsum.photos/seed/room-${id}-c/1200/800`,
+      `https://picsum.photos/seed/room-${id}-d/1200/800`,
     ],
     amenities,
   };
@@ -156,7 +159,7 @@ function getRoomById(id: string): RoomData {
   return buildFallbackRoom(id);
 }
 
-const RoomPage = () => {
+export default function RoomPage() {
   const params = useParams<{ id: string }>();
   const id = params?.id ?? "";
 
@@ -256,6 +259,4 @@ const RoomPage = () => {
       </main>
     </div>
   );
-};
-
-export default RoomPage;
+}

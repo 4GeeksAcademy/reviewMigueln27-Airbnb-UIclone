@@ -6,7 +6,7 @@ type CatalogResultsToolbarProps = {
   onChangeSortOrder: (order: SortOrder) => void;
 };
 
-export const CatalogResultsToolbar = ({ resultCount, sortOrder, onChangeSortOrder }: CatalogResultsToolbarProps) => {
+export function CatalogResultsToolbar({ resultCount, sortOrder, onChangeSortOrder }: CatalogResultsToolbarProps) {
   return (
     <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-4">
       <p className="text-lg font-semibold tracking-tight">{resultCount.toLocaleString()} homes found</p>
@@ -26,4 +26,4 @@ export const CatalogResultsToolbar = ({ resultCount, sortOrder, onChangeSortOrde
       </div>
     </div>
   );
-};
+}

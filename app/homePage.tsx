@@ -44,16 +44,6 @@ const listingLocations = [
 const categories = ["All", "Popular", "Beach", "Mountains", "Outdoors", "Arts & culture"];
 
 const listingCategories = categories.slice(1);
-const listingPhotos = [
-  "/home-photo-1.jpg",
-  "/home-photo-2.jpg",
-  "/home-photo-3.jpg",
-  "/home-photo-4.jpg",
-  "/home-photo-5.jpg",
-  "/home-photo-6.jpg",
-  "/home-photo-7.jpg",
-  "/home-photo-8.jpg",
-];
 
 const sections: HomeListingSection[] = sectionTitles.map((title, sectionIndex) => ({
   title,
@@ -68,7 +58,7 @@ const sections: HomeListingSection[] = sectionTitles.map((title, sectionIndex) =
       price: `$${120 + sectionIndex * 36 + index * 14} for 2 nights`,
       rating: Number((4.2 + ((index + sectionIndex) % 8) * 0.1).toFixed(2)),
       tag: index % 4 === 0 ? "Superhost" : index % 2 === 0 ? "Guest favorite" : null,
-      imageUrl: listingPhotos[(sectionIndex + index) % listingPhotos.length],
+      imageUrl: `https://picsum.photos/seed/airbnb-${sectionIndex}-${index}/640/440`,
     };
   }),
 }));
@@ -177,7 +167,7 @@ function filterSections(sourceSections: HomeListingSection[], typedValue: string
     .filter((section) => section.listings.length > 0);
 }
 
-const HomePage = () => {
+export default function HomePage() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [searchValue, setSearchValue] = useState("");
   const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -236,6 +226,4 @@ const HomePage = () => {
       <SiteFooter />
     </div>
   );
-};
-
-export default HomePage;
+}

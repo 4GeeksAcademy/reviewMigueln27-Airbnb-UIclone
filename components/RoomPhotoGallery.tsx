@@ -8,23 +8,13 @@ type RoomPhotoGalleryProps = {
   onSelectPhoto: (index: number) => void;
 };
 
-export const RoomPhotoGallery = ({ room, photoIndex, onPreviousPhoto, onNextPhoto, onSelectPhoto }: RoomPhotoGalleryProps) => {
+export function RoomPhotoGallery({ room, photoIndex, onPreviousPhoto, onNextPhoto, onSelectPhoto }: RoomPhotoGalleryProps) {
   const sidePhotos = room.photos.filter((_, index) => index !== photoIndex).slice(0, 4);
 
   return (
     <section className="space-y-3">
       <div className="relative overflow-hidden rounded-2xl bg-zinc-100 md:hidden">
-        <img
-          src={room.photos[photoIndex]}
-          alt={`${room.title} photo ${photoIndex + 1}`}
-          className="h-[300px] w-full object-cover"
-          onError={(event) => {
-            const image = event.currentTarget;
-            if (!image.src.includes("room-placeholder.svg")) {
-              image.src = "/room-placeholder.svg";
-            }
-          }}
-        />
+        <img src={room.photos[photoIndex]} alt={`${room.title} photo ${photoIndex + 1}`} className="h-[300px] w-full object-cover" />
         <button
           onClick={onPreviousPhoto}
           className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow"
@@ -47,17 +37,7 @@ export const RoomPhotoGallery = ({ room, photoIndex, onPreviousPhoto, onNextPhot
 
       <div className="hidden h-[430px] grid-cols-[2fr_1fr] gap-2 overflow-hidden rounded-2xl md:grid">
         <button onClick={() => onSelectPhoto(photoIndex)} className="overflow-hidden bg-zinc-100" aria-label="Main photo">
-          <img
-            src={room.photos[photoIndex]}
-            alt={`${room.title} photo ${photoIndex + 1}`}
-            className="h-full w-full object-cover"
-            onError={(event) => {
-              const image = event.currentTarget;
-              if (!image.src.includes("room-placeholder.svg")) {
-                image.src = "/room-placeholder.svg";
-              }
-            }}
-          />
+          <img src={room.photos[photoIndex]} alt={`${room.title} photo ${photoIndex + 1}`} className="h-full w-full object-cover" />
         </button>
 
         <div className="grid grid-cols-2 gap-2">
@@ -71,17 +51,7 @@ export const RoomPhotoGallery = ({ room, photoIndex, onPreviousPhoto, onNextPhot
                 className="overflow-hidden bg-zinc-100"
                 aria-label={`Show photo ${originalIndex + 1}`}
               >
-                <img
-                  src={photo}
-                  alt={`${room.title} side photo ${index + 1}`}
-                  className="h-full w-full object-cover"
-                  onError={(event) => {
-                    const image = event.currentTarget;
-                    if (!image.src.includes("room-placeholder.svg")) {
-                      image.src = "/room-placeholder.svg";
-                    }
-                  }}
-                />
+                <img src={photo} alt={`${room.title} side photo ${index + 1}`} className="h-full w-full object-cover" />
               </button>
             );
           })}
@@ -89,4 +59,4 @@ export const RoomPhotoGallery = ({ room, photoIndex, onPreviousPhoto, onNextPhot
       </div>
     </section>
   );
-};
+}

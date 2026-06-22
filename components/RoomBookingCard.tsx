@@ -5,7 +5,7 @@ type RoomBookingCardProps = {
   onIncreaseGuests: () => void;
 };
 
-export const RoomBookingCard = ({ nightlyPrice, guests, onDecreaseGuests, onIncreaseGuests }: RoomBookingCardProps) => {
+export function RoomBookingCard({ nightlyPrice, guests, onDecreaseGuests, onIncreaseGuests }: RoomBookingCardProps) {
   return (
     <aside className="h-fit rounded-2xl border border-zinc-200 p-6 shadow-[0_6px_18px_rgba(0,0,0,0.08)] lg:sticky lg:top-24">
       <h3 className="text-[28px] font-semibold text-zinc-900">
@@ -45,4 +45,4 @@ export const RoomBookingCard = ({ nightlyPrice, guests, onDecreaseGuests, onIncr
       </div>
     </aside>
   );
-};
+}
