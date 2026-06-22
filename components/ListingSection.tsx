@@ -6,7 +6,7 @@ type ListingSectionProps = {
   listings: Listing[];
 };
 
-export function ListingSection({ title, listings }: ListingSectionProps) {
+export const ListingSection = ({ title, listings }: ListingSectionProps) => {
   return (
     <section className="space-y-4 border-b border-zinc-100 pb-6">
       <div className="flex items-center justify-between">
@@ -25,4 +25,4 @@ export function ListingSection({ title, listings }: ListingSectionProps) {
       </div>
     </section>
   );
-}
+};

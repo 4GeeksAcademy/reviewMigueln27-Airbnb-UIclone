@@ -4,7 +4,7 @@ type CatalogListingsGridProps = {
   listings: Listing[];
 };
 
-export function CatalogListingsGrid({ listings }: CatalogListingsGridProps) {
+export const CatalogListingsGrid = ({ listings }: CatalogListingsGridProps) => {
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
       {listings.map((listing) => (
@@ -12,4 +12,4 @@ export function CatalogListingsGrid({ listings }: CatalogListingsGridProps) {
       ))}
     </div>
   );
-}
+};

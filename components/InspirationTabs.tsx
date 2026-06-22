@@ -5,7 +5,7 @@ type InspirationTabsProps = {
   onChangeTab: (tab: string) => void;
 };
 
-export function InspirationTabs({ activeTab, tabs, tabContent, onChangeTab }: InspirationTabsProps) {
+export const InspirationTabs = ({ activeTab, tabs, tabContent, onChangeTab }: InspirationTabsProps) => {
   return (
     <section className="rounded-none border-b border-zinc-200 bg-[#f2f2f2] p-6 md:p-8">
       <h2 className="text-2xl font-semibold">Inspiration for future getaways</h2>
@@ -35,4 +35,4 @@ export function InspirationTabs({ activeTab, tabs, tabContent, onChangeTab }: In
       </div>
     </section>
   );
-}
+};

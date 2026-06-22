@@ -4,7 +4,7 @@ type RoomAmenitiesProps = {
   amenities: Amenity[];
 };
 
-export function RoomAmenities({ amenities }: RoomAmenitiesProps) {
+export const RoomAmenities = ({ amenities }: RoomAmenitiesProps) => {
   return (
     <article className="space-y-4">
       <h3 className="text-[22px] font-semibold">What this place offers</h3>
@@ -18,4 +18,4 @@ export function RoomAmenities({ amenities }: RoomAmenitiesProps) {
       </div>
     </article>
   );
-}
+};

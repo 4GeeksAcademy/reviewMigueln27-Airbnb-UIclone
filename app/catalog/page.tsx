@@ -11,6 +11,16 @@ import { SiteFooter } from "../../components/SiteFooter";
 import { SupportLinksSection } from "../../components/SupportLinksSection";
 
 type SortOrder = "asc" | "desc";
+const listingPhotos = [
+  "/home-photo-1.jpg",
+  "/home-photo-2.jpg",
+  "/home-photo-3.jpg",
+  "/home-photo-4.jpg",
+  "/home-photo-5.jpg",
+  "/home-photo-6.jpg",
+  "/home-photo-7.jpg",
+  "/home-photo-8.jpg",
+];
 
 const catalogListings: Listing[] = [
   {
@@ -21,7 +31,7 @@ const catalogListings: Listing[] = [
     price: "$652 for 2 nights",
     rating: 5.0,
     tag: null,
-    imageUrl: "https://picsum.photos/seed/catalog-1/640/440",
+    imageUrl: listingPhotos[0],
   },
   {
     id: "c-2",
@@ -31,7 +41,7 @@ const catalogListings: Listing[] = [
     price: "$513 for 2 nights",
     rating: 4.92,
     tag: "Guest favorite",
-    imageUrl: "https://picsum.photos/seed/catalog-2/640/440",
+    imageUrl: listingPhotos[1],
   },
   {
     id: "c-3",
@@ -41,7 +51,7 @@ const catalogListings: Listing[] = [
     price: "$536 for 2 nights",
     rating: 4.9,
     tag: "Superhost",
-    imageUrl: "https://picsum.photos/seed/catalog-3/640/440",
+    imageUrl: listingPhotos[2],
   },
   {
     id: "c-4",
@@ -51,7 +61,7 @@ const catalogListings: Listing[] = [
     price: "$547 for 2 nights",
     rating: 5.0,
     tag: null,
-    imageUrl: "https://picsum.photos/seed/catalog-4/640/440",
+    imageUrl: listingPhotos[0],
   },
   {
     id: "c-5",
@@ -61,7 +71,7 @@ const catalogListings: Listing[] = [
     price: "$626 for 2 nights",
     rating: 5.0,
     tag: "Guest favorite",
-    imageUrl: "https://picsum.photos/seed/catalog-5/640/440",
+    imageUrl: listingPhotos[1],
   },
   {
     id: "c-6",
@@ -71,7 +81,7 @@ const catalogListings: Listing[] = [
     price: "$481 for 2 nights",
     rating: 5.0,
     tag: null,
-    imageUrl: "https://picsum.photos/seed/catalog-6/640/440",
+    imageUrl: listingPhotos[2],
   },
   {
     id: "c-7",
@@ -81,7 +91,7 @@ const catalogListings: Listing[] = [
     price: "$697 for 2 nights",
     rating: 5.0,
     tag: "Guest favorite",
-    imageUrl: "https://picsum.photos/seed/catalog-7/640/440",
+    imageUrl: listingPhotos[0],
   },
   {
     id: "c-8",
@@ -91,7 +101,7 @@ const catalogListings: Listing[] = [
     price: "$446 for 2 nights",
     rating: 4.93,
     tag: null,
-    imageUrl: "https://picsum.photos/seed/catalog-8/640/440",
+    imageUrl: listingPhotos[1],
   },
   {
     id: "c-9",
@@ -101,7 +111,7 @@ const catalogListings: Listing[] = [
     price: "$387 for 2 nights",
     rating: 4.97,
     tag: "Guest favorite",
-    imageUrl: "https://picsum.photos/seed/catalog-9/640/440",
+    imageUrl: listingPhotos[2],
   },
   {
     id: "c-10",
@@ -111,7 +121,7 @@ const catalogListings: Listing[] = [
     price: "$615 for 2 nights",
     rating: 5.0,
     tag: "Guest favorite",
-    imageUrl: "https://picsum.photos/seed/catalog-10/640/440",
+    imageUrl: listingPhotos[0],
   },
 ];
 
@@ -120,7 +130,7 @@ function toPriceValue(priceLabel: string) {
   return Number.isNaN(numericPrice) ? 0 : numericPrice;
 }
 
-export default function CatalogPage() {
+const CatalogPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
 
@@ -177,4 +187,6 @@ export default function CatalogPage() {
       <SiteFooter />
     </div>
   );
-}
+};
+
+export default CatalogPage;

@@ -18,7 +18,7 @@ const linkColumns: LinkColumn[] = [
   },
 ];
 
-export function SupportLinksSection() {
+export const SupportLinksSection = () => {
   return (
     <section className="grid gap-8 border-b border-zinc-200 bg-[#f2f2f2] p-6 md:grid-cols-3 md:p-8">
       {linkColumns.map((column) => (
@@ -33,4 +33,4 @@ export function SupportLinksSection() {
       ))}
     </section>
   );
-}
+};
